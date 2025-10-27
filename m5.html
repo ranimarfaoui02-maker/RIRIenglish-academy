@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🌸 Görkem English — Riri's Edition</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1: #fff6fb;
+      --bg2: #f0fbff;
+      --accent1:#ff96bf;
+      --accent2:#a7c9ff;
+      --muted:#6b6b6b;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.65);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+    body{
+      background: linear-gradient(135deg,var(--bg1),var(--bg2));
+      background-size:400% 400%;
+      animation: bgfloat 12s ease-in-out infinite;
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+    @keyframes bgfloat{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+
+    /* Container */
+    .wrap{max-width:1100px;margin:30px auto;padding:22px;}
+
+    /* Header / Nav */
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;background:linear-gradient(90deg, rgba(255,255,255,0.7), rgba(255,255,255,0.5));backdrop-filter:blur(6px);border-radius:22px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent1),var(--accent2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:"Pacifico";box-shadow:0 8px 20px rgba(167,201,255,0.18);
+    }
+    .brand h1{font-size:1.15rem;margin:0;color:#3e3e3e}
+    nav{display:flex;gap:8px;align-items:center}
+    .nav-btn{background:var(--card);border:0;padding:8px 14px;border-radius:14px;cursor:pointer;box-shadow:0 6px 14px rgba(0,0,0,0.06);font-weight:600;transition:all .22s}
+    .nav-btn.active{transform:translateY(-4px);background:linear-gradient(90deg,var(--accent2),#ffd6ec);color:#3b3b3b}
+    .nav-btn:hover{transform:translateY(-3px)}
+
+    /* Hero (Home) */
+    .home-hero{
+      margin-top:22px;padding:34px;border-radius:22px;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));box-shadow:0 10px 30px rgba(0,0,0,0.06);display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:center;
+    }
+    .hero-left h2{font-family:"Pacifico";font-size:2.4rem;margin:0;color:#ff5f9e}
+    .hero-left p{color:var(--muted);margin-top:8px;font-size:1rem}
+    .cta-row{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+    .cta{background:linear-gradient(135deg,var(--accent1),var(--accent2));color:white;border:0;padding:10px 16px;border-radius:14px;cursor:pointer;font-weight:600;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
+    .ghost{background:transparent;border:2px solid rgba(0,0,0,0.06);padding:9px 14px;border-radius:14px;cursor:pointer}
+
+    .hero-right{
+      display:flex;flex-direction:column;align-items:center;gap:12px;padding:18px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,255,0.8));
+      box-shadow:0 6px 20px rgba(0,0,0,0.04)
+    }
+    .avatar{width:120px;height:120px;border-radius:16px;background:linear-gradient(135deg,#ffd6ec,#cfe0ff);display:flex;align-items:center;justify-content:center;font-size:48px;color:white;box-shadow:0 10px 24px rgba(0,0,0,0.06)}
+    .fun-stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+    .stat{background:var(--glass);padding:8px 10px;border-radius:12px;font-weight:600;color:#444}
+
+    /* floating emojis */
+    .float-emoji{position:fixed;pointer-events:none;opacity:.85;font-size:22px;transform:translateY(0);animation:floaty 6s ease-in-out infinite}
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+    /* Features */
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:18px}
+    .feature-card{background:var(--card);padding:16px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.04);transition:transform .2s}
+    .feature-card:hover{transform:translateY(-6px)}
+    .feature-card h3{margin:0 0 8px 0;color:#333}
+    .feature-card p{margin:0;color:var(--muted);font-size:.98rem}
+
+    /* Lessons & Exam pages */
+    .page{display:none;margin-top:18px}
+    .page.active{display:block;animation:fadein .35s ease}
+    @keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+    /* Lessons layout */
+    .lessons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+    .lesson-tile{background:linear-gradient(180deg,rgba(255,255,255,0.95),#fff);padding:12px;border-radius:12px;box-shadow:0 6px 14px rgba(0,0,0,0.04);display:flex;gap:10px;align-items:center}
+    .lesson-tile .emoji{font-size:22px}
+
+    /* Exam */
+    .exam-card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
+    .progress-bar{width:100%;height:10px;background:linear-gradient(90deg,#f1f4ff,#fff6fb);border-radius:999px;overflow:hidden;margin-bottom:12px}
+    .progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--accent2),#ffd6ec);transition:width .28s}
+    .question-area h3{margin:0 0 8px 0}
+    .answers{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    .ans-btn{background:#fff;border:2px solid rgba(0,0,0,0.06);padding:10px;border-radius:10px;text-align:left;cursor:pointer;transition:all .18s;font-weight:600}
+    .ans-btn:hover{transform:translateY(-3px)}
+    .ans-btn.correct{background:linear-gradient(90deg,#d6ffd9,#f3fff5);border-color:#88e28a}
+    .ans-btn.wrong{background:#ffe8eb;border-color:#ff9aa7}
+    .controls{display:flex;gap:8px;justify-content:flex-end;margin-top:12px;flex-wrap:wrap}
+    .small-btn{padding:8px 12px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+
+    /* Footer */
+    footer.sitefoot{margin-top:26px;text-align:center;color:var(--muted);font-size:.9rem;padding:18px}
+
+    /* Responsive */
+    @media (max-width:820px){
+      .home-hero{grid-template-columns:1fr}
+      header{flex-direction:column;gap:12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <div class="logo">Riri</div>
+        <div>
+          <h1>Görkem English — Riri's Edition</h1>
+          <div style="color:var(--muted);font-size:.85rem">Cute learning for Gen Z & Gen Alpha ✨</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <button class="nav-btn active" data-target="home">🏠 Home</button>
+        <button class="nav-btn" data-target="lessons">📚 Lessons</button>
+        <button class="nav-btn" data-target="exam">📝 Exam</button>
+        <button class="nav-btn" data-target="about">💌 About</button>
+      </nav>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+      <div class="home-hero">
+        <div class="hero-left">
+          <h2>Hi, I’m <span style="color:#ff5f9e">Riri</span> 💕</h2>
+          <p>Welcome to Görkem English — fun, pastel, and made to help you learn with joy. Explore lessons, take quizzes, and level up! 🌈</p>
+
+          <div class="cta-row">
+            <button class="cta" data-target="lessons">Start Learning ✨</button>
+            <button class="ghost" data-target="exam">Take a Quiz 🧠</button>
+            <a class="ghost" href="#contact" onclick="openContact()" style="text-decoration:none;color:inherit">Contact</a>
+          </div>
+
+          <div style="margin-top:18px;color:var(--muted)">
+            <strong>Tip:</strong> Click any card below to jump to that section.
+          </div>
+
+          <div class="features" style="margin-top:14px">
+            <div class="feature-card" data-target="lessons">
+              <h3>🎨 Cute Lessons</h3>
+              <p>Colorful, short, and simple grammar + vocab lessons made for fast learners.</p>
+            </div>
+            <div class="feature-card" data-target="exam">
+              <h3>🧪 Smart Quizzes</h3>
+              <p>Progressive tests with instant feedback — practice then improve.</p>
+            </div>
+            <div class="feature-card" data-target="about">
+              <h3>🌸 Friendly Vibes</h3>
+              <p>Gentle UI, emojis, and small wins — learning should be kind to your brain.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-right" aria-hidden="true">
+          <div class="avatar">🌸</div>
+          <div style="text-align:center">
+            <div style="font-weight:700">Riri — Teacher & Baker</div>
+            <div style="color:var(--muted);font-size:.95rem;margin-top:4px">Cupcakes, grammar, and pastel energy ✨</div>
+          </div>
+
+          <div class="fun-stats">
+            <div class="stat">💬 1200+ words</div>
+            <div class="stat">🏆 300 quizzes</div>
+            <div class="stat">🌍 38 countries</div>
+          </div>
+        </aside>
+      </div>
+
+      <div style="margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="exam-card">
+          <h3 style="margin-top:0">Today's mini-challenge</h3>
+          <p style="color:var(--muted)">Answer 5 quick questions and get a mini score — click "Take Quiz" to start.</p>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="cta" onclick="startMiniQuiz()">Take Mini Quiz</button>
+            <button class="ghost" data-target="lessons">Browse Lessons</button>
+          </div>
+        </div>
+
+        <div class="exam-card">
+          <h3 style="margin-top:0">Recent Lessons</h3>
+          <ul style="color:var(--muted);margin:10px 0 0 16px">
+            <li>Present Simple — Habits & routines</li>
+            <li>Past Simple — Completed actions</li>
+            <li>Comparatives — compare things</li>
+            <li>Modal Verbs — can / must / should</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- LESSONS -->
+    <section id="lessons" class="page">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <h2 style="margin:0">📚 Lessons</h2>
+        <div style="color:var(--muted)">Pick a lesson to read — practice with examples below.</div>
+      </div>
+
+      <div style="margin-top:12px" class="lessons-grid">
+        <!-- Use many lessons; these come from your content -->
+        <div class="lesson-tile"><div class="emoji">✏️</div><div><b>Present Simple</b><p style="margin:6px 0 0;color:var(--muted)">Habits & routines: I play, she walks. Form: subject + base (+ s/es).</p></div></div>
+
+        <div class="lesson-tile"><div class="emoji">⏳</div><div><b>Past Simple</b><p style="margin:6px 0 0;color:var(--muted)">Past actions: I went, he did. Regular verbs +ed; irregular: go→went.</p></div></div>
+
+        <div class="lesson-tile"><div class="emoji">🚀</div><div><b>Future (will / going to)</b><p style="margin:6px 0 0;color:var(--muted)">Will = decisions/predictions. Going to = planned actions.</p></div></div>
+
+        <div class="lesson-tile"><div class="emoji">🦋</div><div><b>Present Continuous</b><p style="margin:6px 0 0;color:var(--muted)">Am/is/are + -ing. Use for now / temporary actions.</p></div></div>
+
+        <div class="lesson-tile"><div class="emoji">🖋️</div><div><b>Articles</b><p style="margin:6px 0 0;color:var(--muted)">a/an/the — a cat, an apple, the book.</p></div></div>
+
+        <div class="lesson-tile"><div class="emoji">🧠</div><div><b>Modal Verbs</b><p style="margin:6px 0 0;color:var(--muted)">Can, must, should — ability, obligation, advice.</p></div></div>
+
+        <div class="lesson-tile"><div class="emoji">🎨</div><div><b>Comparative & Superlative</b><p style="margin:6px 0 0;color:var(--muted)">Big → bigger → the biggest. Good → better → the best.</p></div></div>
+
+        <div class="lesson-tile"><div class="emoji">🍎</div><div><b>Food Vocabulary</b><p style="margin:6px 0 0;color:var(--muted)">Apple, bread, milk, banana, cheese.</p></div></div>
+
+        <div class="lesson-tile"><div class="emoji">🐶</div><div><b>Animals</b><p style="margin:6px 0 0;color:var(--muted)">Cat, dog, elephant, bird, rabbit.</p></div></div>
+
+        <div class="lesson-tile"><div class="emoji">💬</div><div><b>Daily Expressions</b><p style="margin:6px 0 0;color:var(--muted)">What's up? / Take care / See you later.</p></div></div>
+
+        <div class="lesson-tile"><div class="emoji">🪞</div><div><b>Wh- Questions</b><p style="margin:6px 0 0;color:var(--muted)">What, Where, When, Who, Why, How — practice form: Wh + aux + subject + verb.</p></div></div>
+
+        <div class="lesson-tile"><div class="emoji">🌷</div><div><b>Prepositions (time/place)</b><p style="margin:6px 0 0;color:var(--muted)">at 5pm / on Monday / in June / in the room / on the table.</p></div></div>
+      </div>
+
+      <div style="margin-top:20px;">
+        <div class="exam-card">
+          <h3 style="margin:0 0 8px 0">Lesson details — Present Simple (example)</h3>
+          <p style="color:var(--muted);margin:0 0 8px 0">Form: Subject + base verb (+ s/es for he/she/it). Examples:</p>
+          <ul style="margin:6px 0;color:var(--muted)">
+            <li>I go to school every day.</li>
+            <li>He works at a bakery.</li>
+            <li>The cat sleeps on the sofa.</li>
+          </ul>
+          <p style="margin-top:6px;color:var(--muted)">Tip: add -s or -es for third person singular: go → goes, fly → flies.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXAM -->
+    <section id="exam" class="page">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <h2 style="margin:0">📝 Exam — Practice Test</h2>
+        <div style="color:var(--muted)">Multiple choice — instant feedback</div>
+      </div>
+
+      <div style="margin-top:12px" class="exam-card">
+        <div class="progress-bar" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+        <div class="question-area" id="questionArea">
+          <!-- question inserted by JS -->
+        </div>
+
+        <div class="controls" style="margin-top:12px">
+          <button class="small-btn" id="prevBtn">⬅ Prev</button>
+          <button class="small-btn" id="nextBtn">Next ➡</button>
+          <button class="small-btn" id="finishBtn" style="background:linear-gradient(90deg,var(--accent2),#ffd6ec);color:white">Finish</button>
+        </div>
+
+        <div style="margin-top:10px;color:var(--muted);font-size:.95rem">Score: <span id="scoreDisplay">0</span> / <span id="totalDisplay">0</span></div>
+      </div>
+    </section>
+
+    <!-- ABOUT / CONTACT -->
+    <section id="about" class="page">
+      <div style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1">
+          <h2 style="margin-top:0">💌 About Riri & This Course</h2>
+          <p style="color:var(--muted)">This site is a cute, friendly place to learn English basics. Content includes grammar rules, vocabulary, examples, and progressive quizzes to track improvement. Designed to be light, positive, and encouraging — perfect for younger learners and anyone who likes pastel vibes ✨</p>
+        </div>
+
+        <div style="min-width:260px">
+          <h3 style="margin:0 0 8px 0">Contact</h3>
+          <p style="color:var(--muted);margin:0 0 8px 0">Have ideas or want more lessons? Click below to open a quick contact form (simulated).</p>
+          <button class="cta" onclick="openContact()">Send a Message 💌</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="sitefoot">Made with ☁️ & 💗 by Riri — Görkem English</footer>
+  </div>
+
+  <!-- Floating emojis (decorative) -->
+  <div id="emojiLayer" aria-hidden="true"></div>
+
+  <!-- Contact modal (simple) -->
+  <div id="contactModal" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);z-index:60">
+    <div style="background:white;padding:18px;border-radius:14px;max-width:420px;width:calc(100% - 40px);box-shadow:0 18px 50px rgba(0,0,0,0.25)">
+      <h3 style="margin-top:0">Send a quick message</h3>
+      <label style="display:block;margin:8px 0 6px 0;color:var(--muted)">Your message</label>
+      <textarea id="msgText" style="width:100%;height:100px;border-radius:10px;padding:10px;border:1px solid #eee"></textarea>
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px">
+        <button onclick="closeContact()" class="ghost" style="border-radius:10px">Cancel</button>
+        <button class="cta" onclick="sendMessage()" style="border-radius:10px">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* ---------- Setup navigation ---------- */
+    const navBtns = document.querySelectorAll('.nav-btn');
+    navBtns.forEach(b=>{
+      b.addEventListener('click', ()=> {
+        const target = b.getAttribute('data-target');
+        showPage(target);
+      });
+    });
+    // also support data-target on other elements (cards, cta buttons)
+    document.querySelectorAll('[data-target]').forEach(el=>{
+      el.addEventListener('click', (e)=>{
+        const t = el.getAttribute('data-target');
+        showPage(t);
+      });
+    });
+
+    function showPage(name){
+      // hide all pages
+      document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+      // mark nav
+      navBtns.forEach(nb=> nb.classList.toggle('active', nb.getAttribute('data-target') === name));
+      const el = document.getElementById(name);
+      if(el) el.classList.add('active');
+
+      // Scroll to top of container (nice UX on mobile)
+      window.scrollTo({top:0,behavior:'smooth'});
+
+      // If exam page, initialize exam
+      if(name === 'exam') initExam();
+    }
+
+    /* ---------- Floating decorative emojis ---------- */
+    const emojiList = ["🌸","💖","✨","🍓","🦋","☁️","🌈"];
+    const emojiLayer = document.getElementById('emojiLayer');
+    for(let i=0;i<12;i++){
+      const d = document.createElement('div');
+      d.className = 'float-emoji';
+      d.textContent = emojiList[Math.floor(Math.random()*emojiList.length)];
+      d.style.left = (Math.random()*95) + 'vw';
+      d.style.top = (Math.random()*85) + 'vh';
+      d.style.fontSize = (14 + Math.random()*32) + 'px';
+      d.style.animationDelay = (Math.random()*5) + 's';
+      d.style.opacity = 0.8 - Math.random()*0.4;
+      emojiLayer.appendChild(d);
+    }
+
+    /* ---------- Contact modal ---------- */
+    function openContact(){ document.getElementById('contactModal').style.display='flex'; }
+    function closeContact(){ document.getElementById('contactModal').style.display='none'; }
+    function sendMessage(){
+      const txt = document.getElementById('msgText').value.trim();
+      if(!txt){ alert("Please write a short message 💌"); return; }
+      closeContact();
+      alert("Message sent! I'll read it in my imagination 😌 (demo)");
+      document.getElementById('msgText').value = '';
+    }
+
+    /* ---------- Mini Quiz (5 Qs) ---------- */
+    const miniQs = [
+      {q:"Choose the correct: She ___ to school every day.", a:["go","goes","went","gone"], correct:1},
+      {q:"Past of 'eat' is:", a:["eat","eated","ate","eaten"], correct:2},
+      {q:"Which is a fruit?", a:["Carrot","Banana","Chair","Bottle"], correct:1},
+      {q:"Select the article: I saw ___ elephant.", a:["a","an","the","no"], correct:1},
+      {q:"Complete: They ___ playing now.", a:["is","are","am","be"], correct:1}
+    ];
+    function startMiniQuiz(){
+      // simple prompt-based mini-quiz to keep UI small
+      let sc=0;
+      for(let i=0;i<miniQs.length;i++){
+        const q=miniQs[i];
+        const ans = prompt(`Q${i+1}: ${q.q}\nChoices:\n${q.a.map((v,idx)=>`${idx+1}) ${v}`).join('\n')}`);
+        if(ans === null) break;
+        const idx = parseInt(ans)-1;
+        if(idx===q.correct){ sc++; alert('Correct ✨') } else alert('Not quite — correct is: ' + q.a[q.correct]);
+      }
+      alert(`Mini quiz finished. Score: ${sc}/${miniQs.length}`);
+    }
+
+    /* ---------- Exam full: questions, UI ---------- */
+    const questions = [
+      {q:"She ___ to school every day.", a:["go","goes","went","gone"], correct:1},
+      {q:"I ___ a book yesterday.", a:["read","reads","reading","red"], correct:0},
+      {q:"He has ___ his homework.", a:["do","did","done","does"], correct:2},
+      {q:"They ___ playing football now.", a:["is","are","am","be"], correct:1},
+      {q:"If it ___ tomorrow, we will stay home.", a:["rain","rains","rained","raining"], correct:1},
+      {q:"She has lived here ___ 2010.", a:["since","for","from","at"], correct:0},
+      {q:"I have ___ my keys!", a:["lose","lost","losing","loseed"], correct:1},
+      {q:"He’s the ___ student in the class.", a:["good","better","best","more good"], correct:2},
+      {q:"I’ve never been to ___ United States.", a:["the","a","an","no article"], correct:0},
+      {q:"Can you speak English? — Yes, a ___.", a:["few","little","bit","lot"], correct:2},
+      {q:"He drives ___ than I do.", a:["careful","more careful","more carefully","most carefully"], correct:2},
+      {q:"I’m looking forward to ___ you.", a:["meet","meeting","met","meets"], correct:1},
+      {q:"You ___ finish your homework before watching TV.", a:["should","must","might","can"], correct:0},
+      {q:"If I ___ rich, I would travel the world.", a:["am","was","were","be"], correct:2},
+      {q:"They haven’t seen each other ___ months.", a:["since","for","during","at"], correct:1},
+      {q:"This is the book ___ I told you about.", a:["who","whom","which","where"], correct:2},
+      {q:"Let’s go for a walk, ___?", a:["shall we","do we","don’t we","will we"], correct:0},
+      {q:"He said he ___ finish the work soon.", a:["will","would","can","may"], correct:1},
+      {q:"She ___ breakfast yet.", a:["didn’t have","hasn’t had","doesn’t has","don’t have"], correct:1},
+      {q:"I prefer tea ___ coffee.", a:["than","over","to","with"], correct:2},
+      {q:"I wish I ___ taller.", a:["am","was","were","be"], correct:2},
+      {q:"He runs as ___ as his brother.", a:["fast","faster","fastly","more fast"], correct:0},
+      {q:"What do you use to write?", a:["Pen","Spoon","Fork","Cup"], correct:0},
+      {q:"Which is used to call someone?", a:["Book","Phone","Chair","Ball"], correct:1},
+      {q:"What do you wear on your feet?", a:["Shoes","Gloves","Hat","Shirt"], correct:0},
+      {q:"Which one is a drink?", a:["Bread","Juice","Carrot","Cake"], correct:1},
+      {q:"Which one is used for cutting?", a:["Knife","Spoon","Cup","Plate"], correct:0},
+      {q:"Which animal says 'meow'?", a:["Dog","Bird","Cat","Cow"], correct:2},
+      {q:"What color are leaves?", a:["Green","Pink","Black","White"], correct:0},
+      {q:"Where do students study?", a:["Hospital","School","Restaurant","Shop"], correct:1},
+      {q:"Which month comes after June?", a:["May","August","July","April"], correct:2},
+      {q:"Choose the correct sentence: He ___ to school every day.", a:["He go to school every day.","He goes to school every day.","He going to school.","He gone to school."], correct:1},
+      {q:"What is the plural of 'child'?", a:["childs","children","childes","childrens"], correct:1},
+      {q:"What is the past of 'go'?", a:["goed","go","gone","went"], correct:3},
+      {q:"Which word is an adjective?", a:["Quickly","Beautiful","Run","Kindly"], correct:1},
+      {q:"Complete: She ___ watching TV now.", a:["is","are","am","be"], correct:0},
+      {q:"What is the opposite of 'cold'?", a:["Hot","Warm","Cool","Freezing"], correct:0},
+      {q:"Which is a synonym of 'happy'?", a:["Sad","Angry","Glad","Tired"], correct:2},
+      {q:"Choose the correct preposition: I'm interested ___ music.", a:["on","in","at","for"], correct:1},
+      {q:"What’s the correct comparative form of 'big'?", a:["more big","biger","bigger","most big"], correct:2}
+    ];
+    // exam state
+    let current = 0;
+    let score = 0;
+    const total = questions.length;
+    document.getElementById('totalDisplay').textContent = total;
+
+    // UI refs
+    const progressFill = document.getElementById('progressFill');
+    const questionArea = document.getElementById('questionArea');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const finishBtn = document.getElementById('finishBtn');
+
+    // track answered to prevent rescore
+    const answered = new Array(total).fill(null);
+
+    function initExam(){
+      // only init once or when revisiting
+      renderQuestion(current);
+      updateProgress();
+    }
+
+    function renderQuestion(i){
+      const q = questions[i];
+      questionArea.innerHTML = `
+        <h3>Q${i+1}: ${escapeHtml(q.q)}</h3>
+        <div class="answers">
+          ${q.a.map((ans, idx)=>`<button class="ans-btn" data-index="${idx}" onclick="selectAnswer(${idx})">${escapeHtml(ans)}</button>`).join('')}
+        </div>
+      `;
+      // If already answered, show feedback
+      const prevAns = answered[i];
+      if(prevAns !== null){
+        // disable buttons and show styles
+        document.querySelectorAll('.ans-btn').forEach((b, idx)=>{
+          b.disabled = true;
+          if(idx === q.correct) b.classList.add('correct');
+          if(idx === prevAns && prevAns !== q.correct) b.classList.add('wrong');
+        });
+      }
+      // update nav button states
+      prevBtn.disabled = (i<=0);
+      nextBtn.disabled = (i>=total-1);
+    }
+
+    function selectAnswer(idx){
+      const q = questions[current];
+      if(answered[current] !== null) return; // already answered
+      answered[current] = idx;
+      const buttons = document.querySelectorAll('.ans-btn');
+      buttons.forEach((b, i)=>{
+        b.disabled = true;
+        if(i === q.correct) b.classList.add('correct');
+        if(i === idx && i !== q.correct) b.classList.add('wrong');
+      });
+      if(idx === q.correct){ score++; scoreDisplay.textContent = score; }
+      updateProgress();
+    }
+
+    function updateProgress(){
+      const done = answered.filter(x=>x!==null).length;
+      const pct = Math.round((done/total)*100);
+      progressFill.style.width = pct + '%';
+    }
+
+    // nav controls
+    nextBtn.addEventListener('click', ()=>{ if(current<total-1){ current++; renderQuestion(current); }});
+    prevBtn.addEventListener('click', ()=>{ if(current>0){ current--; renderQuestion(current); }});
+    finishBtn.addEventListener('click', finishExam);
+
+    function finishExam(){
+      const done = answered.filter(x=>x!==null).length;
+      if(done < total){
+        if(!confirm(`You've answered ${done}/${total} questions. Finish anyway?`)) return;
+      }
+      alert(`Final score: ${score} / ${total} — Great job! 🌟`);
+      // reset exam for next attempt
+      current = 0; score = 0; answered.fill(null);
+      scoreDisplay.textContent = '0';
+      renderQuestion(current);
+      updateProgress();
+      showPage('home');
+    }
+
+    // small helper: escape HTML
+    function escapeHtml(text){
+      return String(text).replace(/[&<>"'`=\/]/g, function (s) {
+        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','/':'&#x2F;','`':'&#x60;','=':'&#x3D;'})[s];
+      });
+    }
+
+    // initialize first view
+    initExam();
+
+    // keyboard nav (optional)
+    document.addEventListener('keydown', (e)=>{
+      if(document.querySelector('#exam').classList.contains('active')){
+        if(e.key === 'ArrowRight') nextBtn.click();
+        if(e.key === 'ArrowLeft') prevBtn.click();
+      }
+    });
+
+  </script>
+</body>
+</html>
+
+</body>
+</html>
